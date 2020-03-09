@@ -220,4 +220,5 @@ exec echo 2000 > /sys/class/backlight/intel_backlight/brightness
 #Setting wallpaper
 exec_always feh --bg-scale ~/images/wp/wallpaper.png
 exec_always picom #transparency plugin
-exec --no-startup-id redshift
+exec --no-startup-id redshift #nightshift package
+exec --no-startup-id setxkbmap -layout us -variant intl #set dead keys
