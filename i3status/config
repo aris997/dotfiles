@@ -18,6 +18,7 @@ order += "battery all"
 order += "disk /"
 order += "load"
 order += "cpu_temperature 0"
+order += "read_file BRIGHTNESS"
 order += "memory"
 order += "tztime local"
 
@@ -40,22 +41,28 @@ battery all {
 }
 
 disk "/" {
-        format = "SSD: %avail"
+        format = "SSD:%avail"
 }
 
 load {
-        format = "CPU: %1min"
+        format = "CPU:%1min"
 }
 
 cpu_temperature 0 {
-	format = "Temp: %degrees"
+	format = "Temp:%degrees"
 	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input"
 }
 
+read_file BRIGHTNESS {
+	format = "B:%content"
+	path = "/home/riccardo/.config/monitorbrightness/brightness"
+	max_characters = 5
+}
+
 memory {
-        format = "RAM: %used" 
-        threshold_degraded = "4G"
-        format_degraded = "MEMORY < %available"
+        format = "RAM:%used" 
+	threshold_degraded = "4G"	
+	format_degraded = "MEMORY < %available"
 }
 
 tztime local {

@@ -216,7 +216,7 @@ bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+shift+z	gaps outer current minus 5
 
 #setting brightness value at startup
-exec echo 2000 > /sys/class/backlight/intel_backlight/brightness
+exec sh /home/riccardo/.config/monitorbrightness/startup.sh
 #Setting wallpaper
 exec_always feh --bg-scale ~/images/wp/wallpaper.png
 exec_always picom #transparency plugin
