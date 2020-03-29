@@ -213,7 +213,8 @@ for_window [class=".*"] border pixel 2
 gaps inner 15
 gaps outer 15
 bindsym $mod+z		gaps outer current plus 5
-bindsym $mod+shift+z	gaps outer current minus 5
+bindsym $mod+Shift+z	gaps outer current minus 5
+bindsym Ctrl+Mod1+Delete --release exec --no-startup-id i3lock-fancy
 
 #setting brightness value at startup
 exec sh /home/riccardo/.config/monitorbrightness/startup.sh
