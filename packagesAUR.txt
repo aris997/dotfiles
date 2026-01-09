@@ -1,0 +1,3 @@
+spotify
+skypeforlinux-stable-bin
+i3lock-fancy

@@ -1,0 +1,7 @@
+# add the following lines to /etc/default//grub
+# achive the fastest possible boot:
+GRUB_FORCE_HIDDEN_MENU="true"
+
+cp ~/31_hold_shift /etc/grub.d/
+sudo chmod a+x /etc/grub.d/31_hold_shift
+sudo grub-mkconfig -o /boot/grub/grub.cfg
