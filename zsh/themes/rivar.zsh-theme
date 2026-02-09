@@ -16,7 +16,7 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[grey]%} ✱"
 ZSH_THEME_RUBY_PROMPT_PREFIX="%{$fg_bold[red]%}‹"
 ZSH_THEME_RUBY_PROMPT_SUFFIX="›%{$reset_color%}"
 
-# # # # # #
+# # # # # # # #
 user_hostname()  {
 	echo "%F{013}%n%F{130}@%F{013}%m"
 }
@@ -26,7 +26,12 @@ directory() {
 }
 
 docker_counter() {
-	echo "%F{blue}\uf21f$(docker ps -q | wc -l)%{$reset_color%}"
+if docker ps -q >/dev/null 2>&1; then
+        local count=$(docker ps -q | wc -l | tr -d ' ')
+		echo "%F{blue}\uf21f${count}%{$reset_color%}"
+	else
+		echo ""
+	fi
 }
 
 clock_time() {
@@ -34,7 +39,7 @@ clock_time() {
 }
 
 last_command_result() {
-	echo "%(?.✔.%K{red}✘%{$reset_color%})" 
+	echo "%(?.✔.%K{red}✘%{$reset_color%})"
 }
 
 PROMPT='$(user_hostname) $(directory) $(git_prompt_info) $(docker_counter) $(clock_time)
@@ -47,4 +52,3 @@ ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=" %{$fg[green]%}🐍 "
 ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_VIRTUALENV_PREFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX
 ZSH_THEME_VIRTUALENV_SUFFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX
-

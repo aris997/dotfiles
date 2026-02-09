@@ -98,7 +98,7 @@ fi
 # the $ZSH_CUSTOM folder, with .zsh extension. Examples:
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
-$ZSH_CUSTOM/secrets.zsh
+# $ZSH_CUSTOM/secrets.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
