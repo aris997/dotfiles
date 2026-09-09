@@ -18,11 +18,26 @@ ZSH_THEME_RUBY_PROMPT_SUFFIX="›%{$reset_color%}"
 
 # # # # # # # #
 user_hostname()  {
-	echo "%F{013}%n%F{130}@%F{013}%m"
+	echo "%F{013}%n%F{130}@%F{013}Mac"
 }
 
 directory() {
-	echo "%{$fg_bold[green]%}%~%{$reset_color%}"
+	local prompt_path="${(%):-%~}"
+	local -a folders
+	folders=("${(@s:/:)prompt_path}")
+	local i
+	for (( i = 1; i < ${#folders}; i++ )); do
+		if (( i == 1 )) && [[ "${folders[i]}" == "~"* ]]; then
+			continue
+		fi
+		if [[ "${folders[i]}" == .* ]]; then
+			folders[i]="${folders[i][1,2]}"
+		else
+			folders[i]="${folders[i][1]}"
+		fi
+	done
+	prompt_path="${(j:/:)folders}"
+	print -r -- "%{$fg_bold[green]%}${prompt_path//\%/%%}%{$reset_color%}"
 }
 
 docker_counter() {
@@ -45,6 +60,12 @@ modal_profile() {
 		echo ""
 		return
 	fi
+
+	case "$profile" in
+		liablix-staging) profile="stage" ;;
+		liablix-testing) profile="test" ;;
+		liablix) profile="prod" ;;
+	esac
 
 	echo "%K{46}%F{22}\uf1b3:${profile}%f%k%E"
 }
