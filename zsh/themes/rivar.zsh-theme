@@ -28,10 +28,25 @@ directory() {
 docker_counter() {
 if docker ps -q >/dev/null 2>&1; then
         local count=$(docker ps -q | wc -l | tr -d ' ')
-		echo "%F{blue}\uf21f${count}%{$reset_color%}"
+		echo "%F{blue}\uf21f ${count}%{$reset_color%}"
 	else
 		echo ""
 	fi
+}
+
+modal_profile() {
+	if [[ "$PWD" != "$HOME/Liablix/agent-report" && "$PWD" != "$HOME/Liablix/agent-report/"* ]]; then
+		echo ""
+		return
+	fi
+
+	local profile=$(modal profile current 2>/dev/null)
+	if [[ -z "$profile" ]]; then
+		echo ""
+		return
+	fi
+
+	echo "%K{46}%F{22}\uf1b3:${profile}%f%k%E"
 }
 
 clock_time() {
@@ -42,7 +57,7 @@ last_command_result() {
 	echo "%(?.✔.%K{red}✘%{$reset_color%})"
 }
 
-PROMPT='$(user_hostname) $(directory) $(git_prompt_info) $(docker_counter) $(clock_time)
+PROMPT='$(user_hostname) $(directory) $(git_prompt_info) $(modal_profile) $(docker_counter) $(clock_time)
 $ '
 
 RPROMPT='$(virtualenv_prompt_info)$(last_command_result)'

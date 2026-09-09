@@ -110,3 +110,23 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+_auto_activate_venv() {
+    local venv_dir="$PWD/.venv"
+
+    if [[ -r "$venv_dir/bin/activate" && -n "${VIRTUAL_ENV:-}" && "${VIRTUAL_ENV:A}" == "${venv_dir:A}" ]]; then
+        return 0
+    fi
+
+    if (( $+functions[deactivate] )); then
+        deactivate
+    fi
+
+    if [[ -r "$venv_dir/bin/activate" ]]; then
+        source "$venv_dir/bin/activate"
+    fi
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd _auto_activate_venv
+_auto_activate_venv
