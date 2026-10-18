@@ -1,0 +1,25 @@
+[commit]
+	gpgsign = true
+  verbose = true
+[user]
+	signingkey = A9F1410E4B638C93
+	name = Riccardo Riva
+	email = riccardo.riva@liablix.com
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[fetch]
+	prune = true
+[core]
+  editor = vim
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection
+[alias]
+  # Single-line view with branch graph
+  logs  = log --graph --all --pretty=format:'%C(auto)%h%d %s %C(dim white)(%cr) %C(cyan)<%an>%C(reset)'   
+  # Two-line view with branch graph
+  logs2 = log --graph --all --pretty=format:'%C(auto)%h%d %C(cyan)%an %C(dim white)(%cr)%C(reset)%n  %s'
+      

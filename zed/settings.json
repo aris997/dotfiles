@@ -1,0 +1,154 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "show_completion_documentation": true,
+  "proxy": "",
+  "format_on_save": "on",
+  "redact_private_values": false,
+  "cli_default_open_behavior": "new_window",
+  "colorize_brackets": true,
+  "drag_and_drop_selection": {
+    "enabled": false,
+  },
+  "active_pane_modifiers": {
+    "border_size": 0.0,
+  },
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": false,
+  },
+  "tabs": {
+    "close_position": "left",
+    "file_icons": true,
+    "git_status": true,
+  },
+  "title_bar": {
+    "show_branch_status_icon": false,
+  },
+  "git": {
+    "diff_base": "head",
+    "hunk_style": "staged_hollow",
+    "inline_blame": {
+      "delay_ms": 500,
+      "min_column": 2,
+    },
+  },
+  "minimap": {
+    "max_width_columns": 80,
+    "current_line_highlight": "all",
+    "thumb_border": "none",
+    "display_in": "all_editors",
+    "show": "always",
+  },
+  "vim_mode": true,
+  "file_finder": {
+    "file_icons": true,
+  },
+  "file_scan_exclusions": [
+    "__pycache__",
+    ".DS_Store",
+    ".git",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    ".idea",
+    ".logfire",
+  ],
+  "disable_ai": false,
+  "agent": {
+    "default_model": {
+      "speed": "fast",
+      "provider": "openai-subscribed",
+      "model": "gpt-6-astra",
+      "enable_thinking": true,
+      "effort": "max"
+    },
+    "show_turn_stats": true,
+    "use_modifier_to_send": true,
+    "play_sound_when_agent_done": "always",
+    "flexible": true,
+    "dock": "right",
+    "sidebar_side": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+    "terminal_init_command": "",
+  },
+  "git_panel": {
+    "group_by": "none",
+    "file_icons": true,
+    "tree_view": true,
+    "dock": "right",
+  },
+  "project_panel": {
+    "folder_indicator": "icon",
+    "git_status_indicator": true,
+    "file_icons": true,
+    "dock": "left",
+    "hide_hidden": false,
+    "hide_root": true,
+    "scrollbar": {
+      "horizontal_scroll": false,
+      "show": "auto",
+    },
+    "bold_folder_labels": false,
+    "indent_size": 18.0,
+    "entry_spacing": "comfortable",
+  },
+  "languages": {
+    "Python": {
+      "format_on_save": "off",
+      "preferred_line_length": 120,
+    },
+  },
+  "rounded_selection": true,
+  "agent_buffer_font_size": 13.0,
+  "agent_ui_font_size": 13.0,
+  "buffer_line_height": "comfortable",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
+  "terminal": {
+    "scrollbar": {
+      "show": "never",
+    },
+    "show_count_badge": false,
+    "font_size": 12.0,
+    "font_family": "0xProto Nerd Font Propo",
+    "cursor_shape": "underline",
+    "blinking": "on",
+  },
+  "base_keymap": "VSCode",
+  "vertical_scroll_margin": 3.0,
+  "gutter": {
+    "folds": true,
+  },
+  "cursor_blink": true,
+  "autosave": "on_focus_change",
+  "confirm_quit": true,
+  "buffer_font_fallbacks": [".ZedMono"],
+  "buffer_font_family": "0xProto Nerd Font Propo",
+  "file_types": {
+    "mako": ["*.mako"],
+  },
+  "auto_indent_on_paste": true,
+  "wrap_guides": [80, 100, 120, 160, 220, 320],
+  "agent_servers": {
+    },
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+}
